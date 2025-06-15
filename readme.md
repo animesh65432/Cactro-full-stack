@@ -136,18 +136,13 @@ youtube-dashboard/
 Create a `.env` file in the backend directory:
 
 ```env
-# YouTube API
-YOUTUBE_API_KEY=your_youtube_api_key_here
+YOUTUBE_URL=
+YOUTUBE_ACCESS_TOKEN=
+YOUTUBE_REFRESH_TOKEN=
+GOOGLE_CLIENT_SECRET=
+PORT=
+MONGO_URI=
 
-# MongoDB
-MONGODB_URI=your_mongodb_connection_string
-
-# Server Configuration
-PORT=5000
-NODE_ENV=development
-
-# CORS
-FRONTEND_URL=http://localhost:3000
 ```
 
 ## 🤝 Contributing
