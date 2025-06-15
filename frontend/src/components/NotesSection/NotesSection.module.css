@@ -1,0 +1,30 @@
+/* NotesSection.module.css */
+.notesContainer {
+    margin-top: 2rem;
+}
+
+.noteForm {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.noteForm input {
+    flex: 1;
+    padding: 0.5rem;
+}
+
+.noteForm button {
+    background: #10b981;
+    color: white;
+    padding: 0.5rem 1rem;
+}
+
+.noteList {
+    margin-top: 1rem;
+}
+
+.input {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    width: 100%;
+}

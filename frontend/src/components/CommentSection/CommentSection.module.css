@@ -1,0 +1,32 @@
+.section {
+    margin-top: 2rem;
+}
+
+.form {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.form input {
+    flex: 1;
+    padding: 0.5rem;
+}
+
+.form button {
+    background: #2563eb;
+    color: white;
+    padding: 0.5rem 1rem;
+}
+
+.list {
+    margin-top: 1rem;
+}
+
+.commentItem {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    background: #f3f4f6;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+}
