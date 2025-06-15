@@ -1,30 +1,182 @@
-/* NotesSection.module.css */
 .notesContainer {
-    margin-top: 2rem;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    height: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.notesContainer h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0 0 1rem 0;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 0.5rem;
+}
+
+.input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
 .noteForm {
     display: flex;
     gap: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .noteForm input {
     flex: 1;
-    padding: 0.5rem;
+    padding: 0.75rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.noteForm input:focus {
+    outline: none;
+    border-color: #10b981;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
 }
 
 .noteForm button {
-    background: #10b981;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
     color: white;
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.noteForm button:hover {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.noteForm button:active {
+    transform: translateY(0);
 }
 
 .noteList {
-    margin-top: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+    overflow-y: auto;
 }
 
-.input {
+.noteList li {
+    background: #f8fafc;
+    padding: 0.75rem;
     margin-bottom: 0.5rem;
-    padding: 0.5rem;
-    width: 100%;
+    border-radius: 8px;
+    border-left: 4px solid #10b981;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    transition: background-color 0.2s ease;
+}
+
+.noteList li:hover {
+    background: #f1f5f9;
+}
+
+.noteList li:last-child {
+    margin-bottom: 0;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .notesContainer {
+        padding: 1rem;
+        border-radius: 8px;
+    }
+
+    .notesContainer h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .input {
+        padding: 0.625rem;
+        font-size: 0.8rem;
+    }
+
+    .noteForm {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .noteForm input {
+        padding: 0.625rem;
+        font-size: 0.8rem;
+    }
+
+    .noteForm button {
+        padding: 0.625rem 1rem;
+        font-size: 0.875rem;
+    }
+
+    .noteList li {
+        padding: 0.625rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .notesContainer {
+        padding: 1.25rem;
+    }
+
+    .noteForm {
+        gap: 0.75rem;
+    }
+}
+
+/* Large screens */
+@media (min-width: 1201px) {
+    .notesContainer h3 {
+        font-size: 1.75rem;
+    }
+
+    .input {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+
+    .noteForm input {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+
+    .noteForm button {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+
+    .noteList li {
+        padding: 1rem;
+        font-size: 1rem;
+    }
 }

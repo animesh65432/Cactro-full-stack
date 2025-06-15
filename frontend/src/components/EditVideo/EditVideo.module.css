@@ -1,18 +1,176 @@
-/* EditVideo.module.css */
 .editContainer {
-    margin-top: 2rem;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    height: 100%;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
+}
+
+.editContainer h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0 0 1rem 0;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 0.5rem;
 }
 
 .editContainer input,
 .editContainer textarea {
-    padding: 0.5rem;
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-family: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+.editContainer input:focus,
+.editContainer textarea:focus {
+    outline: none;
+    border-color: #f59e0b;
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+}
+
+.editContainer textarea {
+    min-height: 120px;
+    max-height: 200px;
+    line-height: 1.5;
 }
 
 .editContainer button {
-    background: #f59e0b;
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
     color: white;
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    align-self: center;
+    min-width: 120px;
+    transition: all 0.2s ease;
+    text-transform: capitalize;
+}
+
+.editContainer button:hover {
+    background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+.editContainer button:active {
+    transform: translateY(0);
+}
+
+.editContainer button:disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .editContainer {
+        padding: 1rem;
+        border-radius: 8px;
+        gap: 0.75rem;
+    }
+
+    .editContainer h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .editContainer input,
+    .editContainer textarea {
+        padding: 0.625rem;
+        font-size: 0.875rem;
+    }
+
+    .editContainer textarea {
+        min-height: 100px;
+        max-height: 150px;
+    }
+
+    .editContainer button {
+        padding: 0.625rem 1.5rem;
+        font-size: 0.875rem;
+        border-radius: 20px;
+        min-width: 100px;
+    }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .editContainer {
+        padding: 1.25rem;
+        gap: 0.875rem;
+    }
+
+    .editContainer h3 {
+        font-size: 1.375rem;
+    }
+
+    .editContainer textarea {
+        min-height: 110px;
+        max-height: 180px;
+    }
+}
+
+/* Large screens */
+@media (min-width: 1025px) and (max-width: 1200px) {
+
+    .editContainer input,
+    .editContainer textarea {
+        width: 85%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .editContainer button {
+        width: auto;
+        min-width: 140px;
+    }
+}
+
+/* Extra large screens */
+@media (min-width: 1201px) {
+    .editContainer {
+        padding: 2rem;
+        gap: 1.25rem;
+    }
+
+    .editContainer h3 {
+        font-size: 1.75rem;
+    }
+
+    .editContainer input,
+    .editContainer textarea {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 1rem;
+        font-size: 1rem;
+    }
+
+    .editContainer textarea {
+        min-height: 140px;
+        max-height: 220px;
+    }
+
+    .editContainer button {
+        padding: 1rem 2.5rem;
+        font-size: 1.125rem;
+        min-width: 160px;
+    }
 }

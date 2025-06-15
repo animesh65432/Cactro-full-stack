@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import api from "../../lib/api";
 import type { Note } from "../../types";
 import styles from "./NotesSection.module.css";
+import { toast } from "react-toastify";
 
 export const NotesSection = () => {
     const [notes, setNotes] = useState<Note[]>([]);
@@ -13,6 +14,10 @@ export const NotesSection = () => {
     }, []);
 
     const addNote = async () => {
+        if (!noteInput.trim()) {
+            toast.error("Note content cannot be empty.");
+            return
+        }
         const res = await api.post("/notes", { content: noteInput });
         setNotes([...notes, res.data]);
         setNoteInput("");
@@ -21,6 +26,8 @@ export const NotesSection = () => {
     const filtered = notes.filter(
         (n) => n.content.includes(query) || n.tags.some((t) => t.includes(query))
     );
+
+    console.log(notes)
 
     return (
         <div className={styles.notesContainer}>

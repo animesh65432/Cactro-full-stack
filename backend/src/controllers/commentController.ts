@@ -83,3 +83,26 @@ export const deleteComment = async (req: Request, res: Response) => {
         res.status(500).json({ error: error.message });
     }
 };
+export const getReplies = async (req: Request, res: Response) => {
+    try {
+        const { parentId } = req.params; // ID of top-level comment
+        const token = await getAccessToken();
+
+        const response = await axios.get('https://www.googleapis.com/youtube/v3/comments', {
+            params: {
+                part: 'snippet',
+                parentId,
+                maxResults: 50,
+                textFormat: 'plainText',
+            },
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
+
+        await EventLog.create({ action: 'fetch_replies', videoId: parentId, details: response.data });
+        res.json(response.data);
+    } catch (error: any) {
+        res.status(500).json({ error: error.message });
+    }
+};

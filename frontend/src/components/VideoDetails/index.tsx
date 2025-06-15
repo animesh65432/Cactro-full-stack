@@ -23,11 +23,6 @@ export const VideoDetails = () => {
     if (!video) return <div>Loading video...</div>;
 
     const { snippet, statistics } = video;
-    const thumbnail =
-        snippet.thumbnails.maxres?.url ||
-        snippet.thumbnails.high?.url ||
-        snippet.thumbnails.medium?.url;
-
     return (
         <div className={styles.card}>
             <iframe

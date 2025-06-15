@@ -1,14 +1,29 @@
 import { useState } from "react";
 import api from "../../lib/api";
 import styles from "./EditVideo.module.css";
+import { toast } from "react-toastify";
 
 export const EditVideo = () => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
+    const [isloading, setIsLoading] = useState(false);
 
     const updateVideo = async () => {
-        await api.put("/videos/n51-fNHYWOU", { title, description });
-        alert("Video updated!");
+        setIsLoading(true)
+        try {
+            if (!title || !description) {
+                toast.error("Please fill in both title and description.");
+                return;
+            }
+            await api.put("/videos/n51-fNHYWOU", { title, description });
+            toast.success("Video updated!");
+        } catch (error) {
+            toast.error("Error updating video. Please try again.");
+        }
+        finally {
+            setIsLoading(false)
+        }
+
     };
 
     return (
@@ -24,7 +39,7 @@ export const EditVideo = () => {
                 onChange={(e) => setDescription(e.target.value)}
                 placeholder="New Description"
             />
-            <button onClick={updateVideo}>Save</button>
+            <button onClick={updateVideo}>{isloading ? "loading" : "Save"}</button>
         </div>
     );
 };

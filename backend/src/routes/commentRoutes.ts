@@ -1,4 +1,4 @@
-import { postComment, deleteComment, replyToComment, } from "../controllers/commentController"
+import { postComment, deleteComment, replyToComment, getReplies, } from "../controllers/commentController"
 import { Router } from "express"
 
 const router = Router()
@@ -11,5 +11,7 @@ router.post("/reply/:parentId", replyToComment)
 
 // Route to delete a comment
 router.delete("/:commentId", deleteComment)
+
+router.get("/replies/:parentId", getReplies)
 
 export default router
