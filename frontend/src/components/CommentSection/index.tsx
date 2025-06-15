@@ -23,7 +23,7 @@ export const CommentSection = () => {
     const fetchComments = async () => {
         setIsLoading(true)
         try {
-            const res = await api.get("/videos/video/n51-fNHYWOU/comments");
+            const res = await api.get("/comments/n51-fNHYWOU");
             console.log(res.data, "fecth comments")
             const items = res.data.items;
 

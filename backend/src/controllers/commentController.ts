@@ -106,3 +106,26 @@ export const getReplies = async (req: Request, res: Response) => {
         res.status(500).json({ error: error.message });
     }
 };
+export const getVideoComments = async (req: Request, res: Response) => {
+    try {
+        const token = await getAccessToken();
+        const videoId = req.params.videoId;
+
+        const response = await axios.get('https://www.googleapis.com/youtube/v3/commentThreads', {
+            params: {
+                part: 'snippet',
+                videoId,
+                maxResults: 50,
+                textFormat: 'plainText',
+            },
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
+
+        await EventLog.create({ action: 'fetch_comments', videoId, details: response.data });
+        res.json(response.data);
+    } catch (error: any) {
+        res.status(500).json({ error: error.message });
+    }
+};
